@@ -233,7 +233,11 @@ Route::group([
     Route::post('/editBannerHome', 'BannerHomeController@editBannerHome');
     Route::post('/deleteBannerHome', 'BannerHomeController@deleteBannerHome');
 
-
+    //bannerPrincipal
+    Route::get('/getBannerPrincipal', 'BannerPrincipalController@getBannerPrincipal');
+    Route::post('/addBannerPrincipal', 'BannerPrincipalController@addBannerPrincipal');
+    Route::post('/editBannerPrincipal', 'BannerPrincipalController@editBannerPrincipal');
+    Route::post('/deleteBannerPrincipal', 'BannerPrincipalController@deleteBannerPrincipal');
 
     Route::post('/export-tours', 'TourController@exportTours');
 });
