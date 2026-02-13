@@ -1,652 +1,467 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <!--[if gte mso 9]>
-<xml>
-  <o:OfficeDocumentSettings>
-    <o:AllowPNG/>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-  </o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="x-apple-disable-message-reformatting">
-  <!--[if !mso]><!-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--<![endif]-->
-  <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Book Information</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #333333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
 
-  <style type="text/css">
-    table,
-    td {
-      color: #000000;
-    }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
 
-    a {
-      color: #0000ee;
-      text-decoration: underline;
-    }
+        td {
+            padding: 0;
+        }
 
-    @media only screen and (min-width: 620px) {
-      .u-row {
-        width: 600px !important;
-      }
-      .u-row .u-col {
-        vertical-align: top;
-      }
-      .u-row .u-col-100 {
-        width: 600px !important;
-      }
-    }
+        img {
+            border: 0;
+            -ms-interpolation-mode: bicubic;
+        }
 
-    @media (max-width: 620px) {
-      .u-row-container {
-        max-width: 100% !important;
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-      }
-      .u-row .u-col {
-        min-width: 320px !important;
-        max-width: 100% !important;
-        display: block !important;
-      }
-      .u-row {
-        width: calc(100% - 40px) !important;
-      }
-      .u-col {
-        width: 100% !important;
-      }
-      .u-col>div {
-        margin: 0 auto;
-      }
-    }
+        /* Container */
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #f4f6f8;
+            padding-bottom: 40px;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-    }
+        .main-container {
+            background-color: #ffffff;
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            /* Rounded corners */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-    table,
-    tr,
-    td {
-      vertical-align: top;
-      border-collapse: collapse;
-    }
+        /* Header */
+        .header {
+            background-color: #EB008B;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #d4007d;
+        }
 
-    p {
-      margin: 0;
-    }
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
 
-    .ie-container table,
-    .mso-container table {
-      table-layout: fixed;
-    }
+        /* Content */
+        .content {
+            padding: 40px 30px;
+        }
 
-    * {
-      line-height: inherit;
-    }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    a[x-apple-data-detectors='true'] {
-      color: inherit !important;
-      text-decoration: none !important;
-    }
-  </style>
+        .intro-title {
+            color: #EB008B;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
 
+        /* Receipt Card Style */
+        .receipt-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
 
+        .receipt-header {
+            background-color: #fafafa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            color: #777;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
 
-  <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
-  <!--<![endif]-->
+        .receipt-body {
+            padding: 20px;
+        }
 
+        .info-row {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .info-label {
+            color: #888;
+            font-weight: 500;
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 600;
+            display: inline-block;
+            width: 58%;
+        }
+
+        /* Dashed Separator (The "Tear" line) */
+        .receipt-separator {
+            border-top: 2px dashed #dcdcdc;
+            margin: 25px -20px;
+            /* Negative margin to stretch full width */
+            position: relative;
+        }
+
+        .receipt-separator:before,
+        .receipt-separator:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #f4f6f8;
+            /* Match body bg */
+            border-radius: 50%;
+            position: absolute;
+            top: -11px;
+        }
+
+        .receipt-separator:before {
+            left: -10px;
+        }
+
+        .receipt-separator:after {
+            right: -10px;
+        }
+
+        /* Purchase Details Section */
+        .purchase-details-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .purchase-details-title img {
+            width: 20px;
+            margin-right: 10px;
+            opacity: 0.6;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .item-name {
+            color: #333;
+            font-weight: 500;
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .item-price {
+            color: #333;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .item-meta {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+            display: block;
+        }
+
+        .total-row {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: 800;
+            color: #EB008B;
+        }
+
+        /* Button */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #EB008B;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(235, 0, 139, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f4f6f8;
+            color: #888;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: #EB008B;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+
+            .info-label {
+                width: 100%;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .info-value {
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 
-<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #DBD9D9;color: #000000">
-  <!--[if IE]><div class="ie-container"><![endif]-->
-  <!--[if mso]><div class="mso-container"><![endif]-->
-  <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #DBD9D9;width:100%" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #DBD9D9;"><![endif]-->
+<body>
+    <div class="wrapper">
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td style="padding: 20px 0;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="main-container">
 
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-                              <div style="color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;"></div>
+                        <!-- Header -->
+                        <tr>
+                            <td class="header">
+                                <a href="https://www.cancunbay.com/" target="_blank">
+                                    <img src="https://www.cancunbay.com/images/layout/logo.png" alt="Cancun Bay Logo" class="logo">
+                                </a>
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        </tr>
 
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
+                        <!-- Content -->
+                        <tr>
+                            <td class="content">
 
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="background-color:#EB008B; font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="http://www.cancunbay.com/images/layout/logo.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;"
-                                      width="179.2" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #0394EE;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #030303; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    <span style="font-size: 28px; line-height: 39.2px;">
-                                    <strong><span style="line-height: 39.2px; font-size: 28px;">
-                                      @if ($details['language'] === 'ing')  PREBOOK INFORMATION CONTACT
-                                      @else PRERESERVA INFORMACION DE CONTACTO
-                                      @endif
-                                    </span></strong>
-                                  </span>
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto; padding-bottom:10px;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                 @if ($details['language'] === 'ing')   Information:
-                                 @else  Información:
-                                 @endif
-                              </h1>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Name: {{ $details['client'] }}
-                                   @else  Nombre: {{ $details['client'] }}
-                                   @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                  Email: {{ $details['email'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')   Phone: {{ $details['phone'] }}
-                                   @else  Teléfono: {{ $details['phone'] }}
-                                   @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   Country: {{ $details['country'] }}
-                                    @else  País: {{ $details['country'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   State: {{ $details['state'] }}
-                                    @else  Estado: {{ $details['state'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   City: {{ $details['city'] }}
-                                    @else  Ciudad: {{ $details['city'] }}
-                                    @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-
-
-
-                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                      Hotel: {{ $details['hotel'] }}
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   Promocode: {{ $details['promocode'] }}
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                       <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">Event Url Book Platta:  {{ $details['eventUrlBook'] }} </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">Total: $ {{ $details['total'] }} {{ $details['currency'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                    @if(!empty($details['total_promocode']))
-                        <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                            <tbody>
-                            <tr>
-                                <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                                <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                    <p style="font-size: 14px; line-height: 140%;">
-                                    @if ($details['language'] === 'ing')   Total with promocode: $ {{ $details['total_promocode'] }} {{ $details['currency'] }}
-                                    @else  Total con promocode: $ {{ $details['total_promocode'] }} {{ $details['currency'] }}
-                                    @endif
+                                <div class="intro-text">
+                                    <h1 class="intro-title">
+                                        @if ($details['language'] === 'ing')
+                                            Pre-book Confirmation
+                                        @else
+                                            Confirmación de Pre-reserva
+                                        @endif
+                                    </h1>
+                                    <p>
+                                        @if ($details['language'] === 'ing')
+                                            Here are the details of your request.
+                                        @else
+                                            Aquí están los detalles de tu solicitud.
+                                        @endif
                                     </p>
                                 </div>
 
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    @endif
+                                <!-- Receipt Card -->
+                                <div class="receipt-container">
+                                    <div class="receipt-header">
+                                        @if ($details['language'] === 'ing')
+                                            Client Information
+                                        @else
+                                            Información del Cliente
+                                        @endif
+                                    </div>
+                                    <div class="receipt-body">
+                                        <div class="info-row">
+                                            <span class="info-label">
+                                                @if ($details['language'] === 'ing')
+                                                    Name
+                                                @else
+                                                    Nombre
+                                                @endif
+                                            </span>
+                                            <span class="info-value">{{ $details['client'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Email</span>
+                                            <span class="info-value">{{ $details['email'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">
+                                                @if ($details['language'] === 'ing')
+                                                    Phone
+                                                @else
+                                                    Teléfono
+                                                @endif
+                                            </span>
+                                            <span class="info-value">{{ $details['phone'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">
+                                                @if ($details['language'] === 'ing')
+                                                    Location
+                                                @else
+                                                    Ubicación
+                                                @endif
+                                            </span>
+                                            <span class="info-value">{{ $details['city'] }}, {{ $details['country'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Hotel</span>
+                                            <span class="info-value">{{ $details['hotel'] }}</span>
+                                        </div>
+                                        @if (!empty($details['eventUrlBook']))
+                                            <div class="info-row">
+                                                <span class="info-label">Event Url</span>
+                                                <span class="info-value">{{ $details['eventUrlBook'] }}</span>
+                                            </div>
+                                        @endif
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:17px;font-family:'Cabin',sans-serif;" align="left">
+                                        <!-- The "Tear" Line -->
+                                        <div class="receipt-separator"></div>
 
-                              <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                <tbody>
-                                  <tr style="vertical-align: top">
-                                    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                      <span>&#160;</span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                                        <!-- Purchase Details -->
+                                        <div class="purchase-details-title">
+                                            <!-- Simple icon SVG -->
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EB008B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                            </svg>
+                                            @if ($details['language'] === 'ing')
+                                                Purchase Details
+                                            @else
+                                                Detalle de tu compra
+                                            @endif
+                                        </div>
+
+                                        <div class="item-row">
+                                            <div class="item-name">
+                                                {{ $details['nameTour'] }}
+                                                <span class="item-meta">
+                                                    {{ $details['date'] }} •
+                                                    {{ $details['adults'] }} @if ($details['language'] === 'ing')
+                                                        Adults
+                                                    @else
+                                                        Adultos
+                                                    @endif
+                                                    @if ($details['child'] > 0), {{ $details['child'] }} @if ($details['language'] === 'ing')
+                                                            Children
+                                                        @else
+                                                            Niños
+                                                        @endif
+                                                    @endif
+                                                </span>
+                                            </div>
+                                            <!-- Optional: Price per item if needed, currently showing total only -->
+                                        </div>
+
+                                        @if (!empty($details['promocode']))
+                                            <div class="item-row">
+                                                <div class="item-name" style="color: #EB008B;">
+                                                    Promocode: {{ $details['promocode'] }}
+                                                </div>
+                                            </div>
+                                        @endif
+
+                                        <div class="total-row">
+                                            <div class="total-label">Total</div>
+                                            <div class="total-amount">
+                                                $ {{ $details['total'] }} {{ $details['currency'] }}
+                                            </div>
+                                        </div>
+
+                                        @if (!empty($details['total_promocode']))
+                                            <div style="text-align: right; font-size: 13px; color: #666; margin-top: 5px;">
+                                                @if ($details['language'] === 'ing')
+                                                    Promo Price: <strong>$ {{ $details['total_promocode'] }} {{ $details['currency'] }}</strong>
+                                                @else
+                                                    Precio Promo: <strong>$ {{ $details['total_promocode'] }} {{ $details['currency'] }}</strong>
+                                                @endif
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                </div>
+                                <!-- End Receipt Card -->
+
+                                <!-- Action Button -->
+                                <div class="btn-container">
+                                    <a href="https://www.cancunbay.com/" class="btn">
+                                        @if ($details['language'] === 'ing')
+                                            Visit Website
+                                        @else
+                                            Visitar Sitio Web
+                                        @endif
+                                    </a>
+                                </div>
 
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        </tr>
 
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color: #EB008B; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                   @if ($details['language'] === 'ing')   Tour Information:
-                                   @else  Información del tour:
-                                   @endif
-                              </h1>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Tour: {{ $details['nameTour'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                  @if ($details['language'] === 'ing')   Date: {{ $details['date'] }}
-                                  @else  Fecha: {{ $details['date'] }}
-                                  @endif
+                        <!-- Footer -->
+                        <tr>
+                            <td class="footer">
+                                <p>&copy; Cancun Bay Tours. All rights reserved.</p>
+                                <p>
+                                    <a href="https://www.cancunbay.com/">www.cancunbay.com</a>
                                 </p>
-                              </div>
-
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')    Adults: {{ $details['adults'] }}
-                                   @else   Adultos: {{ $details['adults'] }}
-                                   @endif
-                                 </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">
-                                   @if ($details['language'] === 'ing')    Child: {{ $details['child'] }}
-                                   @else   Niños: {{ $details['child'] }}
-                                   @endif
-                                  </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background: rgb(0,220,19);
-background: linear-gradient(90deg, rgba(0,220,19,1) 0%, rgba(1,147,238,1) 100%);">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #e5eaf5;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #EB008B;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #DBD9D9;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #000000; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Cancun Bay<br /></span></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!--[if mso]></div><![endif]-->
-  <!--[if IE]></div><![endif]-->
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

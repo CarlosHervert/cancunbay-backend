@@ -28,6 +28,7 @@ use App\Mail\ConfirmationSend;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 //use function GuzzleHttp\json_decode;
 
@@ -243,7 +244,7 @@ class SiteApiController extends Controller
             ->orderBy('tour_contents.name', 'ASC')
             ->get();
 
-        \Log::info('test ', [DB::getQueryLog()]);
+        Log::info('test ', [DB::getQueryLog()]);
 
         $arr = [];
         /*for ($a = 0; $a < sizeof($res); $a++) {
@@ -254,7 +255,7 @@ class SiteApiController extends Controller
         }*/
         foreach ($res as $r) {
 
-            \Log::info('test ', [$r]);
+            Log::info('test ', [$r]);
 
             if ($r->is_private) {
                 /// rates to private tours
@@ -342,7 +343,7 @@ class SiteApiController extends Controller
             }
         }
 
-        \Log::info('procesed ', [$res]);
+        Log::info('procesed ', [$res]);
         //return json_encode($arr);
         return response()->json([
             "data" => $res

@@ -1,660 +1,373 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <!--[if gte mso 9]>
-<xml>
-  <o:OfficeDocumentSettings>
-    <o:AllowPNG/>
-    <o:PixelsPerInch>96</o:PixelsPerInch>
-  </o:OfficeDocumentSettings>
-</xml>
-<![endif]-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="x-apple-disable-message-reformatting">
-  <!--[if !mso]><!-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--<![endif]-->
-  <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Instructions</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #333333;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
 
-  <style type="text/css">
-    table,
-    td {
-      color: #000000;
-    }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
 
-    a {
-      color: #0000ee;
-      text-decoration: underline;
-    }
+        td {
+            padding: 0;
+        }
 
-    @media only screen and (min-width: 620px) {
-      .u-row {
-        width: 600px !important;
-      }
-      .u-row .u-col {
-        vertical-align: top;
-      }
-      .u-row .u-col-100 {
-        width: 600px !important;
-      }
-    }
+        img {
+            border: 0;
+            -ms-interpolation-mode: bicubic;
+        }
 
-    @media (max-width: 620px) {
-      .u-row-container {
-        max-width: 100% !important;
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-      }
-      .u-row .u-col {
-        min-width: 320px !important;
-        max-width: 100% !important;
-        display: block !important;
-      }
-      .u-row {
-        width: calc(100% - 40px) !important;
-      }
-      .u-col {
-        width: 100% !important;
-      }
-      .u-col>div {
-        margin: 0 auto;
-      }
-    }
+        /* Container */
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #f4f6f8;
+            padding-bottom: 40px;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-    }
+        .main-container {
+            background-color: #ffffff;
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            /* Rounded corners */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-    table,
-    tr,
-    td {
-      vertical-align: top;
-      border-collapse: collapse;
-    }
+        /* Header */
+        .header {
+            background-color: #1ea767;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #168f56;
+        }
 
-    p {
-      margin: 0;
-    }
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
 
-    .ie-container table,
-    .mso-container table {
-      table-layout: fixed;
-    }
+        /* Content */
+        .content {
+            padding: 40px 30px;
+        }
 
-    * {
-      line-height: inherit;
-    }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    a[x-apple-data-detectors='true'] {
-      color: inherit !important;
-      text-decoration: none !important;
-    }
-  </style>
+        .intro-title {
+            color: #1ea767;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
 
+        /* Receipt Card Style */
+        .receipt-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
 
+        .receipt-header {
+            background-color: #f0fdf4;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dcfce7;
+            color: #166534;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
 
-  <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
-  <!--<![endif]-->
+        .receipt-body {
+            padding: 20px;
+        }
 
+        .info-row {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .info-label {
+            color: #888;
+            font-weight: 500;
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 600;
+            display: inline-block;
+            width: 58%;
+            word-wrap: break-word;
+        }
+
+        /* Dashed Separator (The "Tear" line) */
+        .receipt-separator {
+            border-top: 2px dashed #dcdcdc;
+            margin: 25px -20px;
+            /* Negative margin to stretch full width */
+            position: relative;
+        }
+
+        .receipt-separator:before,
+        .receipt-separator:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #f4f6f8;
+            /* Match body bg */
+            border-radius: 50%;
+            position: absolute;
+            top: -11px;
+        }
+
+        .receipt-separator:before {
+            left: -10px;
+        }
+
+        .receipt-separator:after {
+            right: -10px;
+        }
+
+        /* Purchase Details Section */
+        .purchase-details-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .item-name {
+            color: #333;
+            font-weight: 500;
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .total-row {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1ea767;
+        }
+
+        /* Button */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1ea767;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(30, 167, 103, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1ea767;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+
+            .info-label {
+                width: 100%;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .info-value {
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 
-<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #1ea767;color: #000000">
-  <!--[if IE]><div class="ie-container"><![endif]-->
-  <!--[if mso]><div class="mso-container"><![endif]-->
-  <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #1ea767;width:100%" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-          <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #1ea767;"><![endif]-->
+<body>
+    <div class="wrapper">
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td style="padding: 20px 0;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="main-container">
 
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-                              <div style="color: #afb0c7; line-height: 170%; text-align: center; word-wrap: break-word;"></div>
+                        <!-- Header -->
+                        <tr>
+                            <td class="header">
+                                <a href="https://www.cancunbay.com/" target="_blank">
+                                    <img src="https://www.cancunbay.com/images/layout/logo.png" alt="Cancun Bay Logo" class="logo">
+                                </a>
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="http://ec2-54-152-172-137.compute-1.amazonaws.com/layout/logotipo.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;"
-                                      width="179.2" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #04a6a1;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #04a6a1;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-                                <p style="font-size: 14px; line-height: 140%;">
-                                    <span style="font-size: 28px; line-height: 39.2px;">
-                                    <strong><span style="line-height: 39.2px; font-size: 28px;">Instructions for bank transfer</span></strong>
-                                  </span>
-                                </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color: #04a6a1; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                Dear  {{$details['client']}}:
-                              </h1>
-
-
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">
-                                This is the necessary information so that you can make your bank transfer. If you have any questions, you can contact us so we can help you.
-                            </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Amount: $ {{ number_format($details['amount'],2) }} {{ $details['currency'] }}</p>
-                              </div>
-
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Type: {{ $details['type'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Bank name: {{ $details['bankName'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Bank code: {{ $details['bankCode'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Banck clabe: {{ $details['bankClabe'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">Bank reference: {{ $details['bankReference'] }} </p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:17px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                <tbody>
-                                  <tr style="vertical-align: top">
-                                    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                      <span>&#160;</span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                              <p style="font-size: 14px; line-height: 140%;">
-                            Verify that it is the amount mentioned. Once the transfer is done, we will send you an email with the confirmation of your reservation</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    <!--
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <h1 style="margin: 0px; color: #04a6a1; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;">
-                                Tour Information:
-                              </h1>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Tour: { $details['nameTour'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Date: { //details['date'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Adults: { $details['adults'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Child: { $details['child'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;">Duration: { $details['duration'] }}</p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                    -->
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #e5eaf5;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #e5eaf5;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #1ea767; line-height: 160%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 20px; line-height: 32px;">
-                                    <strong>Get in touch</strong></span></p>
-                                <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #000000;">+11 111 333 4444</span></p>
-                                <p style="font-size: 14px; line-height: 160%;">
-                                    <span style="font-size: 16px; line-height: 25.6px; color: #000000;">websales@nstoursmexico.com</span></p>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 33px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div align="center">
-                                <div style="display: table; max-width:195px;">
-                                  <!--[if (mso)|(IE)]><table width="195" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse;" align="center"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:195px;"><tr><![endif]-->
-
-
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://facebook.com/" title="Facebook" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/facebook.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://instagram.com/" title="Instagram" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/instagram.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 17px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://email.com/" title="Email" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png" alt="Email" title="Email" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                  <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                  <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
-                                    <tbody>
-                                      <tr style="vertical-align: top">
-                                        <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                          <a href="https://whatsapp.com/" title="WhatsApp" target="_blank">
-                                            <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/whatsapp.png" alt="WhatsApp" title="WhatsApp" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                          </a>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                  <!--[if (mso)|(IE)]></td><![endif]-->
-
-
-                                  <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                        </tr>
+
+                        <!-- Content -->
+                        <tr>
+                            <td class="content">
+
+                                <div class="intro-text">
+                                    <h1 class="intro-title">
+                                        Instructions for bank transfer
+                                    </h1>
+                                    <p>
+                                        Dear {{ $details['client'] }}:<br>
+                                        This is the necessary information so that you can make your bank transfer. If you have any questions, you can contact us so we can help you.
+                                    </p>
                                 </div>
-                              </div>
+
+                                <!-- Receipt Card -->
+                                <div class="receipt-container">
+                                    <div class="receipt-header">
+                                        Transfer Details
+                                    </div>
+                                    <div class="receipt-body">
+                                        <div class="info-row">
+                                            <span class="info-label">Type</span>
+                                            <span class="info-value" style="text-transform: capitalize;">{{ $details['type'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Bank name</span>
+                                            <span class="info-value">{{ $details['bankName'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Bank code</span>
+                                            <span class="info-value">{{ $details['bankCode'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Banck clabe</span>
+                                            <span class="info-value">{{ $details['bankClabe'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Bank reference</span>
+                                            <span class="info-value">{{ $details['bankReference'] }}</span>
+                                        </div>
+
+
+                                        <!-- Separator -->
+                                        <div class="receipt-separator"></div>
+
+                                        <div class="total-row">
+                                            <div class="total-label">Amount</div>
+                                            <div class="total-amount">
+                                                $ {{ number_format($details['amount'], 2) }} {{ $details['currency'] }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Receipt Card -->
+
+                                <div style="text-align: center; margin-top: 20px; color: #666; font-size: 14px; line-height: 1.5;">
+                                    <p>Verify that it is the amount mentioned. Once the transfer is done, we will send you an email with the confirmation of your reservation</p>
+                                </div>
+
 
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        </tr>
 
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
+                        <!-- Footer -->
+                        <tr>
+                            <td class="footer">
+                                <p style="font-size: 20px; margin-bottom: 10px;"><strong>Get in touch</strong></p>
+                                <p style="margin-bottom: 10px;">
+                                    +11 111 333 4444 <br>
+                                    <a href="mailto:websales@nstoursmexico.com" style="color:#ffffff;">websales@nstoursmexico.com</a>
+                                </p>
 
+                                <div style="margin-top: 20px; margin-bottom: 20px;">
+                                    <!-- Social Icons -->
+                                    <a href="https://facebook.com/" target="_blank" style="margin: 0 5px; text-decoration: none;">
+                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/facebook.png" alt="Facebook" width="32" style="width: 32px;">
+                                    </a>
+                                    <a href="https://instagram.com/" target="_blank" style="margin: 0 5px; text-decoration: none;">
+                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/instagram.png" alt="Instagram" width="32" style="width: 32px;">
+                                    </a>
+                                    <a href="https://email.com/" target="_blank" style="margin: 0 5px; text-decoration: none;">
+                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/email.png" alt="Email" width="32" style="width: 32px;">
+                                    </a>
+                                    <a href="https://whatsapp.com/" target="_blank" style="margin: 0 5px; text-decoration: none;">
+                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/whatsapp.png" alt="WhatsApp" width="32" style="width: 32px;">
+                                    </a>
+                                </div>
 
-
-          <div class="u-row-container" style="padding: 0px;background-color: transparent">
-            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #1ea767;">
-              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #1ea767;"><![endif]-->
-
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
-                    <!--[if (!mso)&(!IE)]><!-->
-                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                      <!--<![endif]-->
-
-                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
-
-                              <div style="color: #fafafa; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; Ns Tours Mexico<br /></span></p>
-                              </div>
-
+                                <p>Copyrights &copy; Ns Tours Mexico</p>
                             </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!--[if (!mso)&(!IE)]><!-->
-                    </div>
-                    <!--<![endif]-->
-                  </div>
-                </div>
-                <!--[if (mso)|(IE)]></td><![endif]-->
-                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-              </div>
-            </div>
-          </div>
-
-
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!--[if mso]></div><![endif]-->
-  <!--[if IE]></div><![endif]-->
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
