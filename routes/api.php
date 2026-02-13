@@ -33,6 +33,7 @@ Route::post('/getTourData', 'SiteApiController@getTourData');
 Route::post('/getTotal', 'SiteApiController@getTotal');
 Route::post('/getPromoCode', 'SiteApiController@getPromoCode');
 Route::post('/getBannerHome', 'SiteApiController@getBannerHome');
+Route::post('/getBannerPrincipal', 'SiteApiController@getBannerPrincipal');
 
 Route::post('/addPayment', 'PaymentController@addPayment');
 Route::post('/updatePayment', 'PaymentController@updatePayment');

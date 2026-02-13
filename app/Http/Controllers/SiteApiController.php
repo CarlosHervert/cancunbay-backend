@@ -13,6 +13,7 @@ use App\Promocode;
 use App\PromocodeTour;
 use App\PaymentClient;
 use App\BannerHome;
+use App\BannerPrincipal;
 use App\closedDate;
 use App\closedDay;
 use App\Gallery;
@@ -914,6 +915,21 @@ class SiteApiController extends Controller
         */
 
         $res = BannerHome::where('active', 1)->where('languages_id', $request->idioma)->orderBy('alt', 'ASC')->get();
+        if (count($res) > 0) {
+            return response()->json([
+                "data" => $res,
+
+            ], 200);
+        } else {
+            return response()->json([
+                "data" => '',
+            ], 400);
+        }
+    }
+
+    function getBannerPrincipal(Request $request)
+    {
+        $res = BannerPrincipal::orderBy('alt', 'ASC')->get();
         if (count($res) > 0) {
             return response()->json([
                 "data" => $res,
