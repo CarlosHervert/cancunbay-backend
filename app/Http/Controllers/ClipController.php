@@ -49,12 +49,18 @@ class ClipController extends Controller
             ]
         ];
 
+        Log::info('Clip Request: createPreference', ['url' => $baseUrl, 'data' => $data]);
         try {
             $response = Http::withHeaders([
                 'x-api-key'     => 'Basic ' . $authHeader,
                 'Accept'        => 'application/vnd.com.payclip.v2+json',
                 'Content-Type'  => 'application/json',
             ])->post($baseUrl, $data);
+
+            Log::info('Clip Response: createPreference', [
+                'status' => $response->status(),
+                'body' => $response->json()
+            ]);
 
             if ($response->successful()) {
                 $responseData = $response->json();
@@ -117,11 +123,17 @@ class ClipController extends Controller
 
         $baseUrl = 'https://api-gw.payclip.com/checkout/' . $payment->authorization;
 
+        Log::info('Clip Request: verifyPaymentStatus', ['url' => $baseUrl]);
         try {
             $response = Http::withHeaders([
                 'x-api-key' => 'Basic ' . $authHeader,
                 'Accept'    => 'application/vnd.com.payclip.v2+json',
             ])->get($baseUrl);
+
+            Log::info('Clip Response: verifyPaymentStatus', [
+                'status' => $response->status(),
+                'body' => $response->json()
+            ]);
 
             if ($response->successful()) {
                 $data = $response->json();

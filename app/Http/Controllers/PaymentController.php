@@ -228,13 +228,14 @@ class PaymentController extends Controller
         if ($status) {
             Mail::to($res[0]->email)->send(new ConfirmationSend($details));
             Mail::to("jsalvador@grupogarflo.com")->send(new ConfirmationSend($details));
-            Mail::to("aperez@grupogarflo.com")->send(new ConfirmationSend($details));
-            //Mail::to("lavila@grupogarflo.com")->send(new ConfirmationSend($details));
+            Mail::to("hventura@grupogarflo.com")->send(new ConfirmationSend($details));
             Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
-            Mail::to("resellers@contactcentermexico.com")->send(new ConfirmationSend($details));
-            Mail::to("dcastaneda@grupogarflo.com")->send(new ConfirmationSend($details));
+            Mail::to("reservaciones@cancunbay.com")->send(new ConfirmationSend($details));
         } else {
             Mail::to("jsalvador@grupogarflo.com")->send(new ConfirmationSend($details));
+            Mail::to("hventura@grupogarflo.com")->send(new ConfirmationSend($details));
+            Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
+            Mail::to("reservaciones@cancunbay.com")->send(new ConfirmationSend($details));
         }
     }
 
@@ -274,12 +275,10 @@ class PaymentController extends Controller
             'eventUrlBook' => $request->eventUrlBook ?? ''
         ];
 
-        //Mail::to("lavila@grupogarflo.com")->send(new preBookEmail($details));
         Mail::to("jsalvador@grupogarflo.com")->send(new preBookEmail($details));
-        Mail::to("websales@cancunbay.com")->send(new preBookEmail($details));
-        Mail::to('aperez@grupogarflo.com')->send(new preBookEmail($details));
-        Mail::to('resellers@contactcentermexico.com')->send(new preBookEmail($details));
-        Mail::to('dcastaneda@grupogarflo.com')->send(new preBookEmail($details));
+        Mail::to("hventura@grupogarflo.com")->send(new preBookEmail($details));
+        Mail::to('websales@cancunbay.com')->send(new preBookEmail($details));
+        Mail::to('reservaciones@cancunbay.com')->send(new preBookEmail($details));
     }
 
 
@@ -296,10 +295,9 @@ class PaymentController extends Controller
 
         ];
         Mail::to("jsalvador@grupogarflo.com")->send(new emailContacto($details));
+        Mail::to("hventura@grupogarflo.com")->send(new emailContacto($details));
         Mail::to("websales@cancunbay.com")->send(new emailContacto($details));
-        //Mail::to("lavila@grupogarflo.com")->send(new emailContacto($details));
-        Mail::to("aperez@grupogarflo.com")->send(new emailContacto($details));
-        Mail::to("resellers@contactcentermexico.com")->send(new emailContacto($details));
+        Mail::to("reservaciones@cancunbay.com")->send(new emailContacto($details));
 
         // check for failures
         if (count(Mail::failures()) > 0) {
@@ -347,10 +345,9 @@ class PaymentController extends Controller
         ];
 
         Mail::to("jsalvador@grupogarflo.com")->send(new emailResponsePay($details));
-        Mail::to("aperez@grupogarflo.com")->send(new emailResponsePay($details));
-        // Mail::to("lavila@grupogarflo.com")->send(new emailResponsePay($details));
+        Mail::to("hventura@grupogarflo.com")->send(new emailResponsePay($details));
         Mail::to("websales@cancunbay.com")->send(new emailResponsePay($details));
-        Mail::to("resellers@contactcentermexico.com")->send(new emailResponsePay($details));
+        Mail::to("reservaciones@cancunbay.com")->send(new emailResponsePay($details));
     }
 
     function test(Request $request)
@@ -394,10 +391,9 @@ class PaymentController extends Controller
 
         Mail::to($res[0]->email)->send(new ConfirmationSend($details));
         Mail::to("jsalvador@grupogarflo.com")->send(new ConfirmationSend($details));
-        Mail::to("aperez@grupogarflo.com")->send(new ConfirmationSend($details));
-        Mail::to("resellers@contactcentermexico.com")->send(new ConfirmationSend($details));
-        //Mail::to("lavila@grupogarflo.com")->send(new BankTransferSend($details));
-        //Mail::to("websales@cancuntours.com")->send(new BankTransferSend($details));
+        Mail::to("hventura@grupogarflo.com")->send(new ConfirmationSend($details));
+        Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
+        Mail::to("reservaciones@cancunbay.com")->send(new ConfirmationSend($details));
     }
 
 
@@ -485,10 +481,10 @@ class PaymentController extends Controller
                     'promocode' => $request->toursInfo["promocode"]['promocode'] ?? '',
                 ];
 
-                Mail::to("aperez@grupogarflo.com")->send(new EventUrlBook($details));
-                Mail::to("mcanela@grupogarflo.com")->send(new EventUrlBook($details));
-                Mail::to("lavila@grupogarflo.com")->send(new EventUrlBook($details));
-                Mail::to("abarajas@cancunbay.com")->send(new EventUrlBook($details));
+                Mail::to("jsalvador@grupogarflo.com")->send(new EventUrlBook($details));
+                Mail::to("hventura@grupogarflo.com")->send(new EventUrlBook($details));
+                Mail::to("websales@cancunbay.com")->send(new EventUrlBook($details));
+                Mail::to("reservaciones@cancunbay.com")->send(new EventUrlBook($details));
 
 
                 return array('code' => 200, 'message' => '', 'logId' => $data["booking"]["code"]);
