@@ -86,6 +86,12 @@ Route::group(['prefix' => 'mercado-pago'], function () {
     Route::post('getToken', 'MercadoPagoController@getPreferenceId');
     Route::post('process_payment', 'MercadoPagoController@process_payment');
 });
+
+Route::group(['prefix' => 'clip'], function () {
+    Route::post('createPreference', 'ClipController@createPreference');
+    Route::post('verify-payment-status', 'ClipController@verifyPaymentStatus');
+    Route::post('webhook', 'ClipController@verifyPayment');
+});
 //Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
 Route::group([
     'middleware' => 'auth:api'
