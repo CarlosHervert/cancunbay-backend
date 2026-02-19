@@ -325,6 +325,15 @@
                                             ¡Gracias por tu compra!
                                         @endif
                                     </h1>
+                                    @if ($details['status'] === 'pending' && isset($details['merch']) && $details['merch'] === 'Clip')
+                                        <div style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffeeba; text-align: left;">
+                                            @if ($details['language'] === 'ing')
+                                                <strong>Payment Pending:</strong> Your payment via Clip is currently being processed. This is not yet a final booking confirmation; you will receive a final confirmation once the payment is approved.
+                                            @else
+                                                <strong>Pago Pendiente:</strong> Tu pago a través de Clip está aun no esta cubierto. Esta no es una confirmación total de reserva; recibirás la confirmación final una vez que el pago sea aprobado.
+                                            @endif
+                                        </div>
+                                    @endif
                                     <p>
                                         @if ($details['language'] === 'ing')
                                             Here is your booking confirmation.
@@ -387,6 +396,16 @@
                                                 @endif
                                             </span>
                                             <span class="info-value">{{ $details['codeBook'] }}</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">
+                                                @if ($details['language'] === 'ing')
+                                                    Customer ID
+                                                @else
+                                                    ID Cliente
+                                                @endif
+                                            </span>
+                                            <span class="info-value">{{ $details['payment_clients_id'] }}</span>
                                         </div>
                                         <div class="info-row">
                                             <span class="info-label">

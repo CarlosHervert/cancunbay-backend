@@ -35,9 +35,9 @@ class ClipController extends Controller
             'currency' => 'MXN',
             'purchase_description' => 'Tour: ' . ($request->tourData['name'] ?? 'Reserva Cancunbay'),
             'redirection_url' => [
-                'success' => $redirectionBaseUrl . "?status=success&clientId=" . $clientId,
-                'error'   => $redirectionBaseUrl . "?status=error&clientId=" . $clientId,
-                'default' => $redirectionBaseUrl
+                'success' => $redirectionBaseUrl . "?t=" . base64_encode("success:" . $clientId),
+                'error'   => $redirectionBaseUrl . "?t=" . base64_encode("error:" . $clientId),
+                'default' => $redirectionBaseUrl . "?t=" . base64_encode("default:" . $clientId),
             ],
             'metadata' => [
                 'me_reference_id' => (string) $request->clientId,

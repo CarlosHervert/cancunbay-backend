@@ -174,7 +174,7 @@ class PaymentController extends Controller
         } else {
             return response()->json([
                 'code' => 400,
-                'message' => 'No data found whith code book => ' . $request->codeBook,
+                'message' => 'No data found whith ID = ' . $request->id,
                 'data' => ''
             ], 400);
         }
@@ -222,7 +222,9 @@ class PaymentController extends Controller
             'discount'  => $res[0]->discount,
             'country'   => $res[0]->country,
             'state'     => $res[0]->state,
-            'city'      => $res[0]->city
+            'city'      => $res[0]->city,
+            'payment_clients_id' => $res[0]->payment_clients_id,
+            'merch'     => $res[0]->merch
         ];
 
         if ($status) {
@@ -232,6 +234,7 @@ class PaymentController extends Controller
             Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
             Mail::to("reservaciones@cancunbay.com")->send(new ConfirmationSend($details));
         } else {
+            Mail::to($res[0]->email)->send(new ConfirmationSend($details));
             Mail::to("jsalvador@grupogarflo.com")->send(new ConfirmationSend($details));
             Mail::to("hventura@grupogarflo.com")->send(new ConfirmationSend($details));
             Mail::to("websales@cancunbay.com")->send(new ConfirmationSend($details));
@@ -260,7 +263,7 @@ class PaymentController extends Controller
             'phone'     => $request->phone,
             'language'  => $request->language,
             // 'total'  => $request->toursInfo["total"],
-            'total'     => number_format($totals, 2, '.', ''),
+            'total'     => number_format(ceil($totals), 2, '.', ''),
             'currency'  => $request->currency,
             'nameTour'  => $request->toursInfo["name"],
             'date'      => $request->toursInfo["date"],
@@ -658,6 +661,9 @@ class PaymentController extends Controller
         }
         if ($request->typeBook === "Refunded") {
             $status = "refunded";
+        }
+        if ($request->typeBook === "Pending") {
+            $status = "pending";
         }
         if ($request->typeBook === "Check in payment") {
             $status = "Check in payment";
